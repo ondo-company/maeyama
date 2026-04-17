@@ -59,6 +59,35 @@
     border-radius: 50%;
   }
 
+  /* ===== FLYER SECTION ===== */
+  .flyer-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .flyer-section a {
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .flyer-section a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  }
+  .flyer-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .flyer-section { grid-template-columns: 1fr; max-width: 360px; }
+  }
+
   /* ===== PHOTO SECTIONS ===== */
   .photo-banner {
     width: 100%;
@@ -507,6 +536,14 @@
 
 <!-- ===== FLOAT CTA ===== -->
 <a href="#apply" class="cta-float">申し込みはこちら ↓</a>
+
+<!-- ===== FLYER ===== -->
+<section style="margin-top:40px;">
+  <div class="flyer-section">
+    <a href="flyer-main.jpg" target="_blank"><img src="flyer-main.jpg" alt="企画合宿 in 香川 メインチラシ"></a>
+    <a href="flyer-schedule.jpg" target="_blank"><img src="flyer-schedule.jpg" alt="企画合宿 in 香川 詳細日程"></a>
+  </div>
+</section>
 
 <!-- ===== ABOUT ===== -->
 <div class="container">
