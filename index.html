@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企画合宿 in 香川 | 企画探偵事務所 × ONDO</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green-dark: #4a7c3f;
+    --green-main: #6ab04c;
+    --green-light: #a8d97a;
+    --green-pale: #e8f5d8;
+    --green-bg: #f4fae8;
+    --yellow: #f9f06b;
+    --yellow-light: #fdf8c4;
+    --orange: #f5a623;
+    --orange-light: #fde4b0;
+    --blue: #7ec8e3;
+    --blue-light: #d4f0fb;
+    --white: #ffffff;
+    --text: #3a3a3a;
+    --text-light: #666666;
+  }
+
+  body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background: var(--green-bg);
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(rgba(74,124,63,0.65), rgba(74,124,63,0.75)), url('group-walk.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+
+  /* ===== PHOTO SECTIONS ===== */
+  .photo-banner {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 10px 0 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  .photo-banner img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .photo-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  @media (max-width: 600px) {
+    .photo-banner img { height: 180px; }
+    .photo-grid img { height: 140px; }
+  }
+  .hero-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 50px;
+    padding: 6px 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .hero h1 .big {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin: 8px 0;
+  }
+  .hero-date {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--text);
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 10px 28px;
+    border-radius: 50px;
+    margin-top: 20px;
+    letter-spacing: 0.03em;
+  }
+  .hero-date small {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 8px;
+  }
+  .hero-sub {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ===== SECTION ===== */
+  section {
+    margin: 40px 0;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--green-dark);
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--green-light);
+    border-radius: 2px;
+    margin: 10px auto 0;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .about-card p {
+    font-size: 1rem;
+    line-height: 2;
+  }
+  .highlight-box {
+    background: var(--yellow-light);
+    border-left: 4px solid var(--orange);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 0.95rem;
+  }
+  .highlight-box strong {
+    color: var(--orange);
+  }
+
+  /* ===== SCHEDULE ===== */
+  .schedule-grid {
+    display: grid;
+    gap: 16px;
+  }
+  .day-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+  }
+  .day-header {
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+  }
+  .day-header .day-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+  .day-1 .day-header { background: var(--green-main); }
+  .day-2 .day-header { background: var(--orange); }
+  .day-3 .day-header { background: var(--orange); }
+  .day-4 .day-header { background: var(--blue); }
+  .day-5 .day-header { background: var(--green-dark); }
+  .day-body {
+    padding: 16px 20px;
+  }
+  .time-slot {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e8e8e8;
+  }
+  .time-slot:last-child { border-bottom: none; }
+  .time-slot .time {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    min-width: 50px;
+    padding-top: 2px;
+  }
+  .time-slot .event-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .time-slot .event-desc {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 50px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .tag-learn { background: var(--blue-light); color: #2980b9; }
+  .tag-practice { background: var(--orange-light); color: #d35400; }
+  .tag-fun { background: var(--yellow-light); color: #b7950b; }
+  .tag-field { background: var(--green-pale); color: var(--green-dark); }
+
+  /* ===== PROGRAMS ===== */
+  .program-list {
+    display: grid;
+    gap: 16px;
+  }
+  .program-item {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .program-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .program-item h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--green-dark);
+  }
+  .program-item p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-light);
+  }
+
+  /* ===== INFO ===== */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .info-item {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+  }
+  .info-item .info-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .info-item .info-value {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--green-dark);
+  }
+  .info-item .info-note {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+  .info-full {
+    grid-column: 1 / -1;
+  }
+
+  /* ===== FORM ===== */
+  .form-section {
+    background: white;
+    border-radius: 20px;
+    padding: 36px 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .form-group {
+    margin-bottom: 22px;
+  }
+  .form-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    color: var(--green-dark);
+  }
+  .form-group label .required {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-left: 4px;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    background: #fafafa;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--green-main);
+    outline: none;
+    background: white;
+  }
+  .form-group textarea { min-height: 100px; resize: vertical; }
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--green-pale);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .checkbox-item:hover { background: var(--green-light); }
+  .checkbox-item input[type="checkbox"] {
+    width: 18px; height: 18px;
+    accent-color: var(--green-main);
+  }
+  .checkbox-item label { cursor: pointer; font-size: 0.9rem; font-weight: 500; }
+
+  .radio-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--green-pale);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .radio-item:hover { background: var(--green-light); }
+  .radio-item input[type="radio"] {
+    width: 18px; height: 18px;
+    accent-color: var(--green-main);
+  }
+  .radio-item label { cursor: pointer; font-size: 0.9rem; font-weight: 500; }
+
+  .conditional-field {
+    display: none;
+    margin-top: 12px;
+    padding: 16px;
+    background: var(--yellow-light);
+    border-radius: 12px;
+  }
+  .conditional-field.show { display: block; }
+
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+    color: white;
+    font-family: inherit;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+  }
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(106, 176, 76, 0.4);
+  }
+  .submit-btn:active { transform: translateY(0); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  footer .logo {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--green-dark);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+
+  /* ===== CTA FLOAT ===== */
+  .cta-float {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+    color: white;
+    padding: 14px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(106,176,76,0.5);
+    transition: transform 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .cta-float:hover { transform: translateX(-50%) translateY(-2px); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.2rem; }
+    .hero h1 .big { font-size: 1.8rem; }
+    .hero-date { font-size: 1.1rem; padding: 8px 20px; }
+    .info-grid { grid-template-columns: 1fr; }
+    .checkbox-grid { grid-template-columns: 1fr; }
+    .radio-group { flex-direction: column; }
+    .program-item { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-label">企画探偵事務所 × ONDO</div>
+  <h1>
+    山の活用方法を考える
+    <span class="big">企画合宿 in 香川</span>
+  </h1>
+  <div class="hero-date">
+    4/29 (火祝) → 5/3 (土)
+    <small>短日参加OK!</small>
+  </div>
+  <p class="hero-sub">参加できる日にフラッとご参加ください</p>
+</header>
+
+<!-- ===== FLOAT CTA ===== -->
+<a href="#apply" class="cta-float">申し込みはこちら ↓</a>
+
+<!-- ===== ABOUT ===== -->
+<div class="container">
+  <section>
+    <h2 class="section-title">どんな合宿？</h2>
+    <div class="about-card">
+      <p>
+        「ONDOが所有する前山をどう活用するか」をお題に、<strong>企画の技術を学ぶ合宿</strong>です。
+      </p>
+      <p style="margin-top:12px;">
+        日によってプログラムが変わるので、気になるプログラムがある日だけの参加もOK！
+        チームで企画をしたり、プロの企画会議に参戦したり、焚き火を囲んだり…
+        盛りだくさんの5日間です。
+      </p>
+      <div class="highlight-box">
+        <strong>参加費は無料！</strong><br>
+        ※ 食費・お布団代などの実費はご負担をお願いしています。<br>
+        ※ 集合場所・持ち物などは参加者に個別にご案内します。
+      </div>
+    </div>
+    <div class="photo-banner">
+      <img src="nature-scene.jpg" alt="前山フィールドの様子">
+    </div>
+  </section>
+
+  <!-- ===== INFO ===== -->
+  <section>
+    <h2 class="section-title">基本情報</h2>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">日程</div>
+        <div class="info-value">4/29 → 5/3</div>
+        <div class="info-note">短日参加OK</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">場所</div>
+        <div class="info-value">前山（香川県）</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">参加費</div>
+        <div class="info-value" style="color:#e74c3c;">無料</div>
+        <div class="info-note">食費・布団代は実費</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">主催</div>
+        <div class="info-value">ONDO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAMS ===== -->
+  <section>
+    <h2 class="section-title">プログラム紹介</h2>
+    <div class="program-list">
+      <div class="program-item">
+        <div class="program-icon" style="background:var(--orange-light);">🔥</div>
+        <div>
+          <h3>がっつり企画DAY <span class="tag tag-practice">2日間講座</span></h3>
+          <p>この合宿のメインコンテンツ！チームになって前山について企画をします。翌日プレゼンしてフィードバックをもらいます。実践を踏まえて企画の勉強ができる時間です。</p>
+          <p style="margin-top:8px; padding:8px 12px; background:var(--orange-light); border-radius:8px; font-size:0.85rem; font-weight:700; color:#d35400;">
+            ※ 4/30〜5/1 の2日間セットのプログラムです。両日参加が必要です。
+          </p>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-icon" style="background:var(--blue-light);">📚</div>
+        <div>
+          <h3>インプットワークショップ</h3>
+          <p>企画をする人にとって最も重要な「インプット」。日常でインプットの質と量を高めるための方法を勉強します。</p>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-icon" style="background:var(--blue-light);">✨</div>
+        <div>
+          <h3>ワクワクで人を動かす！ 企画を作るワークショップ</h3>
+          <p>企画の作り方を学べるワークショップ。人を動かす企画のコツを掴もう！</p>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-icon" style="background:var(--orange-light);">⚡</div>
+        <div>
+          <h3>企画探偵事務所「ガチ企画会議」</h3>
+          <p>企画探偵事務所がガチで企画をする時間。本気の会議に参戦できます。</p>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-icon" style="background:var(--yellow-light);">💭</div>
+        <div>
+          <h3>未来妄想会議</h3>
+          <p>合宿中に出てきたアイデアを並べて、どこから着手するかなどを決める会議。その企画、関わりたいってものが見つかるかも！</p>
+        </div>
+      </div>
+    </div>
+    <div class="photo-grid">
+      <img src="forest-group.jpg" alt="森の中を散策する参加者たち">
+      <img src="field-activity.jpg" alt="フィールドでの活動">
+    </div>
+  </section>
+
+  <!-- ===== SCHEDULE ===== -->
+  <section>
+    <h2 class="section-title">スケジュール</h2>
+    <div class="schedule-grid">
+
+      <!-- DAY 1 -->
+      <div class="day-card day-1">
+        <div class="day-header">4/29 (火) <span class="day-label">DAY 1</span></div>
+        <div class="day-body">
+          <div class="time-slot">
+            <span class="time">13:00頃</span>
+            <div>
+              <div class="event-name">開会式・フィールド視察 <span class="tag tag-field">@前山</span></div>
+              <div class="event-desc">〜17時頃まで。まずは前山を見て回ろう！</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="day-card day-2" style="border: 3px solid var(--orange);">
+        <div class="day-header">4/30 (水) <span class="day-label">DAY 2 ／ 2日間セット DAY1</span></div>
+        <div class="day-body">
+          <div class="time-slot">
+            <span class="time">終日</span>
+            <div>
+              <div class="event-name">がっつり企画DAY <span class="tag tag-practice">実践</span></div>
+              <div class="event-desc">チームで前山の企画に取り組む実践の1日目！</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 3 -->
+      <div class="day-card day-3" style="border: 3px solid var(--orange);">
+        <div class="day-header">5/1 (木) <span class="day-label">DAY 3 ／ 2日間セット DAY2</span></div>
+        <div class="day-body">
+          <div class="time-slot">
+            <span class="time">午前</span>
+            <div>
+              <div class="event-name">がっつり企画DAY <span class="tag tag-practice">実践</span></div>
+              <div class="event-desc">企画プレゼン＆フィードバック！</div>
+            </div>
+          </div>
+          <div class="time-slot">
+            <span class="time">14:00</span>
+            <div>
+              <div class="event-name">インプットWS <span class="tag tag-learn">学び</span></div>
+              <div class="event-desc">〜16時。インプットの質と量を高める方法を学ぶ！</div>
+            </div>
+          </div>
+          <div class="time-slot">
+            <span class="time">夜</span>
+            <div>
+              <div class="event-name">焚き火ナイト <span class="tag tag-fun">交流</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 4 -->
+      <div class="day-card day-4">
+        <div class="day-header">5/2 (金) <span class="day-label">DAY 4</span></div>
+        <div class="day-body">
+          <div class="time-slot">
+            <span class="time">10:00</span>
+            <div>
+              <div class="event-name">ワクワクで人を動かす！ 企画を作るワークショップ <span class="tag tag-learn">学び</span></div>
+              <div class="event-desc">〜12時。企画の作り方を学ぶワークショップ！</div>
+            </div>
+          </div>
+          <div class="time-slot">
+            <span class="time">13:00</span>
+            <div>
+              <div class="event-name">企画探偵事務所「ガチ企画会議」 <span class="tag tag-practice">実践</span></div>
+              <div class="event-desc">〜18時。本気の企画会議に参戦できる！</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 5 -->
+      <div class="day-card day-5">
+        <div class="day-header">5/3 (土) <span class="day-label">DAY 5</span></div>
+        <div class="day-body">
+          <div class="time-slot">
+            <span class="time">午前</span>
+            <div>
+              <div class="event-name">前山フィールドメンテナンス <span class="tag tag-field">フィールド</span></div>
+              <div class="event-desc">草刈りとかペンキ塗りとか、みんなで山を整えよう！</div>
+            </div>
+          </div>
+          <div class="time-slot">
+            <span class="time">14:00</span>
+            <div>
+              <div class="event-name">未来妄想会議 <span class="tag tag-fun">交流</span></div>
+              <div class="event-desc">〜17時。アイデアを並べて、これからを決める会議！</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FORM ===== -->
+  <section id="apply">
+    <h2 class="section-title">参加申し込み</h2>
+    <div class="form-section" style="text-align:center;">
+      <p style="font-size:1rem; color:var(--text-light); margin-bottom:20px;">下のGoogleフォームからお申し込みください。<br>参加費は無料ですが、食費・お布団代などの実費はご負担をお願いしています。</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSezC_Bi2d2kxz6ZY8CPwJtbrYqxB6KGKdpUXTn8_OvTGi1PsQ/viewform" target="_blank" rel="noopener" class="submit-btn" style="display:inline-block; text-decoration:none; margin-bottom:30px;">Googleフォームで申し込む</a>
+      <div style="position:relative; width:100%; max-width:640px; margin:0 auto;">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSezC_Bi2d2kxz6ZY8CPwJtbrYqxB6KGKdpUXTn8_OvTGi1PsQ/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:12px; background:white;">読み込んでいます…</iframe>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="logo">ONDO</div>
+  <p>企画探偵事務所と山の活用方法を考える 企画合宿 in 香川</p>
+</footer>
+
+<script>
+// フローティングCTAボタンのスムーズスクロール
+</script>
+
+</body>
+</html>
